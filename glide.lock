@@ -1,5 +1,5 @@
-hash: f04d9ba2000ac7e62704b4a17976f32ada88be79fa426cc97481f6898e7031ac
-updated: 2018-04-19T15:56:13.064353+08:00
+hash: 729d57bd129baeec267fcdf7cf1034df15d70b89beea7a30d2f57a285a1a8443
+updated: 2018-04-23T11:35:31.256246+08:00
 imports:
 - name: github.com/go-ini/ini
   version: ace140f73450505f33e8b8418216792275ae82a7
@@ -12,6 +12,12 @@ imports:
   - rpc
   - rpc/filter/jsonrpc
   - util
+- name: github.com/jinzhu/gorm
+  version: 6ed508ec6a4ecb3531899a69cbc746ccf65a4166
+- name: github.com/jinzhu/inflection
+  version: 04140366298a54a039076d798123ffa108fff46c
+- name: github.com/urfave/cli
+  version: cfb38830724cc34fedffe9a2a29fb54fa9169cd1
 - name: gopkg.in/doug-martin/goqu.v4
   version: cd495d70a4ff280202e22a09de9502a3fe0b66cb
   subpackages:

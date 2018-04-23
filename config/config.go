@@ -38,7 +38,7 @@ func GetInstance() *Config {
 func create() *Config {
 	config := &Config{}
 
-	absPath, _ := filepath.Abs("config.ini")
+	absPath, _ := filepath.Abs("../config.ini")
 	cfg, err := ini.Load(absPath)
 	if err != nil {
 		panic("Fail to read file: " + err.Error())
