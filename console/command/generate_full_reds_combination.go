@@ -2,15 +2,18 @@ package command
 
 import (
     "github.com/urfave/cli"
-    "hiroki/util/math"
-    "fmt"
-    "hiroki/model"
-    "strings"
     "hiroki/database"
+    "hiroki/util/math"
+    "hiroki/model"
+    "fmt"
+    "strings"
+    "github.com/jinzhu/gorm"
 )
 
 func GenerateFullRedsCombination(c *cli.Context) error {
+    var tx *gorm.DB
     db := database.DB
+
     iterable := make([]int, 33)
     for i := 1; i <= 33; i++ {
         iterable[i-1] = i
@@ -19,7 +22,12 @@ func GenerateFullRedsCombination(c *cli.Context) error {
     // 全组合数据
     numbers := math.Combination(iterable, 6)
 
+    i := 0
     for _, item := range numbers {
+        if i == 0 {
+            tx = db.Begin()
+        }
+
         entity := &model.Number{}
         reds := [6]string{}
         for i, red := range item {
@@ -29,6 +37,12 @@ func GenerateFullRedsCombination(c *cli.Context) error {
         entity.Beginning = reds[0]
         entity.Ending = reds[5]
         db.Create(entity)
+        i++
+
+        if i == 10000 {
+            tx.Commit()
+            i = 0
+        }
     }
 
     return nil
