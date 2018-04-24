@@ -8,6 +8,7 @@ import (
     "fmt"
     "strings"
     "github.com/jinzhu/gorm"
+    "hiroki/util"
 )
 
 func GenerateFullRedsCombination(c *cli.Context) error {
@@ -33,9 +34,14 @@ func GenerateFullRedsCombination(c *cli.Context) error {
         for i, red := range item {
             reds[i] = fmt.Sprintf("%02d", red)
         }
+
         entity.Reds = strings.Join(reds[:], ",")
         entity.Beginning = reds[0]
         entity.Ending = reds[5]
+        entity.AC = uint8(util.GetAC(item))
+        entity.Sum = uint8(util.GetSum(item))
+        entity.JiOu = util.GetJiOu(item)
+
         db.Create(entity)
         i++
 
