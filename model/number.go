@@ -9,7 +9,7 @@ type Number struct {
     QuJian     string `gorm:"type:char(3);not null"`
     JiOu       string `gorm:"type:char(2);not null"`
     DaXiao     string `gorm:"type:char(2);not null"`
-    Sum        uint8  `gorm:"type:tinyint;not null"`
+    Sum        uint   `gorm:"type:SMALLINT;not null"`
     TongWei    uint8  `gorm:"type:tinyint;not null"`
     LianHao    uint8  `gorm:"type:tinyint;not null"`
     MaxLianHao uint8  `gorm:"type:tinyint;not null"`

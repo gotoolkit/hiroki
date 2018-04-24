@@ -1,5 +1,5 @@
-hash: 729d57bd129baeec267fcdf7cf1034df15d70b89beea7a30d2f57a285a1a8443
-updated: 2018-04-23T11:35:31.256246+08:00
+hash: ad9e3eb5fcdb621d5c6a99fcfa0374e22f89a949d66f22b3b7fa7ab54d2a51a2
+updated: 2018-04-24T16:18:37.847549+08:00
 imports:
 - name: github.com/go-ini/ini
   version: ace140f73450505f33e8b8418216792275ae82a7
@@ -14,12 +14,36 @@ imports:
   - util
 - name: github.com/jinzhu/gorm
   version: 6ed508ec6a4ecb3531899a69cbc746ccf65a4166
+  subpackages:
+  - dialects/mysql
 - name: github.com/jinzhu/inflection
   version: 04140366298a54a039076d798123ffa108fff46c
+- name: github.com/mattn/go-colorable
+  version: efa589957cd060542a26d2dd7832fd6a6c6c3ade
+- name: github.com/mattn/go-isatty
+  version: 6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c
 - name: github.com/urfave/cli
   version: cfb38830724cc34fedffe9a2a29fb54fa9169cd1
+- name: golang.org/x/sys
+  version: cc7307a45468e49eaf2997c890f14aa03a26917b
+  subpackages:
+  - unix
+- name: gopkg.in/cheggaaa/pb.v2
+  version: c112833d014c77e8bde723fd0158e3156951639f
+  subpackages:
+  - termutil
 - name: gopkg.in/doug-martin/goqu.v4
   version: cd495d70a4ff280202e22a09de9502a3fe0b66cb
   subpackages:
   - adapters/mysql
+- name: gopkg.in/fatih/color.v1
+  version: 507f6050b8568533fb3f5504de8e5205fa62a114
+- name: gopkg.in/mattn/go-colorable.v0
+  version: 167de6bfdfba052fa6b2d3664c8f5272e23c9072
+- name: gopkg.in/mattn/go-isatty.v0
+  version: 0360b2af4f38e8d38c7fce2a9f4e702702d73a39
+- name: gopkg.in/mattn/go-runewidth.v0
+  version: 9e777a8366cce605130a531d2cd6363d07ad7317
+- name: gopkg.in/VividCortex/ewma.v1
+  version: b24eb346a94c3ba12c1da1e564dbac1b498a77ce
 testImports: []

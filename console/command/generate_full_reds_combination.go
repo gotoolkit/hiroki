@@ -9,6 +9,7 @@ import (
     "strings"
     "github.com/jinzhu/gorm"
     "hiroki/util"
+    "gopkg.in/cheggaaa/pb.v2"
 )
 
 func GenerateFullRedsCombination(c *cli.Context) error {
@@ -23,6 +24,7 @@ func GenerateFullRedsCombination(c *cli.Context) error {
     // 全组合数据
     numbers := math.Combination(iterable, 6)
 
+    bar := pb.StartNew(len(numbers))
     i := 0
     for _, item := range numbers {
         if i == 0 {
@@ -39,17 +41,25 @@ func GenerateFullRedsCombination(c *cli.Context) error {
         entity.Beginning = reds[0]
         entity.Ending = reds[5]
         entity.AC = uint8(util.GetAC(item))
-        entity.Sum = uint8(util.GetSum(item))
+        entity.QuJian = util.GetQuJian(item)
         entity.JiOu = util.GetJiOu(item)
+        entity.DaXiao = util.GetDaXiao(item)
+        entity.Sum = uint(util.GetSum(item))
+        entity.TongWei = uint8(util.GetTongWei(item))
+        entity.LianHao = uint8(util.GetLianHao(item))
+        entity.MaxLianHao = uint8(util.GetMaxLianHao(item))
+        entity.KuaJu = uint8(util.GetKuaJu(item))
 
         db.Create(entity)
         i++
 
-        if i == 10000 {
+        if i == 2000 {
             tx.Commit()
             i = 0
         }
-    }
 
+        bar.Increment()
+    }
+    bar.Finish()
     return nil
 }
